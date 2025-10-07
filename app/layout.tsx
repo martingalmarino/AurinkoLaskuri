@@ -8,12 +8,12 @@ import DataModeToggle from '@/components/DataModeToggle'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'AurinkoLaskuri - Aurinkopaneelien ROI Laskuri Suomi',
+  title: 'AurinkoCalc - Aurinkopaneelien ROI Laskuri Suomi',
   description: 'Laske aurinkopaneelien takaisinmaksuaika ja säästöt Suomessa. Käyttää FMI säteilytietoja ja Nord Pool sähkön hintoja tarkkojen laskelmien tekemiseen.',
   keywords: 'aurinkopaneelit, ROI, takaisinmaksuaika, sähkö, säästöt, Suomi, FMI, Nord Pool',
-  authors: [{ name: 'AurinkoLaskuri' }],
-  creator: 'AurinkoLaskuri',
-  publisher: 'AurinkoLaskuri',
+  authors: [{ name: 'AurinkoCalc' }],
+  creator: 'AurinkoCalc',
+  publisher: 'AurinkoCalc',
   robots: {
     index: true,
     follow: true,
@@ -28,27 +28,27 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fi_FI',
-    url: 'https://aurinkolaskuri.fi',
-    siteName: 'AurinkoLaskuri',
-    title: 'AurinkoLaskuri - Aurinkopaneelien ROI Laskuri Suomi',
+    url: 'https://www.aurinkocalc.com',
+    siteName: 'AurinkoCalc',
+    title: 'AurinkoCalc - Aurinkopaneelien ROI Laskuri Suomi',
     description: 'Laske aurinkopaneelien takaisinmaksuaika ja säästöt Suomessa. Käyttää ajantasaisia tietoja.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'AurinkoLaskuri - Aurinkopaneelien ROI Laskuri',
+        alt: 'AurinkoCalc - Aurinkopaneelien ROI Laskuri',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AurinkoLaskuri - Aurinkopaneelien ROI Laskuri Suomi',
+    title: 'AurinkoCalc - Aurinkopaneelien ROI Laskuri Suomi',
     description: 'Laske aurinkopaneelien takaisinmaksuaika ja säästöt Suomessa.',
     images: ['/og-image.jpg'],
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: 'Ncw_x4lCCTO9FEpPLJAJ-26kTd2c8pm2bfUgm1Zoc1Y',
   },
 }
 
@@ -60,10 +60,20 @@ export default function RootLayout({
   return (
     <html lang="fi">
       <head>
-        <link rel="canonical" href="https://aurinkolaskuri.fi" />
-        <link rel="alternate" hrefLang="fi" href="https://aurinkolaskuri.fi" />
+        <link rel="canonical" href="https://www.aurinkocalc.com" />
+        <link rel="alternate" hrefLang="fi" href="https://www.aurinkocalc.com" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#1e40af" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://cdn.cookiehub.eu/c2/b09a7fff.js"></script>
+        <script type="text/javascript">
+          document.addEventListener("DOMContentLoaded", function(event) {
+            var cpm = {};
+            window.cookiehub.load(cpm);
+          });
+        </script>
       </head>
       <body className={inter.className}>
         <Header />

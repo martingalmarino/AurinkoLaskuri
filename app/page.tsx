@@ -12,7 +12,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-br from-solar-50 via-primary-50 to-success-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
-            Aurinkopaneelien ROI Laskuri
+            AurinkoCalc - ROI Laskuri
           </h1>
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 mb-6 sm:mb-8 max-w-3xl mx-auto px-4 sm:px-0">
             Laske aurinkopaneelien takaisinmaksuaika ja säästöt Suomessa. 

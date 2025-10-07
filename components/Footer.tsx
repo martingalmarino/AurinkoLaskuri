@@ -14,7 +14,7 @@ export default function Footer() {
           {/* Logo and Description */}
           <div className="lg:col-span-2">
             <div className="mb-6">
-              <span className="text-2xl font-bold">AurinkoLaskuri</span>
+              <span className="text-2xl font-bold">AurinkoCalc</span>
             </div>
             <p className="text-white/80 mb-6 max-w-md leading-relaxed">
               Suomen tarkin aurinkopaneelien ROI-laskuri. Käytämme ajantasaisia FMI säteilytietoja 

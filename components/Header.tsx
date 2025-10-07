@@ -15,7 +15,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="group">
             <span className="text-xl font-bold text-text-primary group-hover:text-primary-800 transition-colors">
-              AurinkoLaskuri
+              AurinkoCalc
             </span>
           </Link>
 

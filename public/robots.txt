@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aurinkolaskuri.fi/sitemap.xml
+# Block access to admin and API routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow important pages
+Allow: /fi/aurinkopaneelit-laskuri/
+Allow: /fi/aurinkopaneelit-laskuri/region/
+
+Sitemap: https://www.aurinkocalc.com/sitemap.xml

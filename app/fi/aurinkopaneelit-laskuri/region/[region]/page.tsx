@@ -51,8 +51,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title,
       description,
-      url: `https://aurinkolaskuri.fi/fi/aurinkopaneelit-laskuri/region/${params.region}`,
-      siteName: 'AurinkoLaskuri',
+      url: `https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/${params.region}`,
+      siteName: 'AurinkoCalc',
       locale: 'fi_FI',
       type: 'website',
     },
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
     },
     alternates: {
-      canonical: `https://aurinkolaskuri.fi/fi/aurinkopaneelit-laskuri/region/${params.region}`,
+      canonical: `https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/${params.region}`,
     },
   }
 }

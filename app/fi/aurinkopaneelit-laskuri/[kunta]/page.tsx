@@ -63,8 +63,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title,
       description,
-      url: `https://aurinkolaskuri.fi/fi/aurinkopaneelit-laskuri/${kunta.slug}`,
-      siteName: 'AurinkoLaskuri',
+      url: `https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/${kunta.slug}`,
+      siteName: 'AurinkoCalc',
       locale: 'fi_FI',
       type: 'website',
       images: [
@@ -83,7 +83,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: [`/og-images/${kunta.slug}.jpg`],
     },
     alternates: {
-      canonical: `https://aurinkolaskuri.fi/fi/aurinkopaneelit-laskuri/${kunta.slug}`,
+      canonical: `https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/${kunta.slug}`,
     },
   }
 }

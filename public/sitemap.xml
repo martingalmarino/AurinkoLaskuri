@@ -1,69 +1,230 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
-    <loc>https://aurinkolaskuri.fi/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://www.aurinkocalc.com/</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Municipality pages -->
   <url>
-    <loc>https://aurinkolaskuri.fi/fi/aurinkopaneelit-laskuri/helsinki</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/helsinki</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://aurinkolaskuri.fi/fi/aurinkopaneelit-laskuri/espoo</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/espoo</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://aurinkolaskuri.fi/fi/aurinkopaneelit-laskuri/tampere</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/tampere</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://aurinkolaskuri.fi/fi/aurinkopaneelit-laskuri/vantaa</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/vantaa</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://aurinkolaskuri.fi/fi/aurinkopaneelit-laskuri/oulu</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/turku</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://aurinkolaskuri.fi/fi/aurinkopaneelit-laskuri/turku</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/oulu</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://aurinkolaskuri.fi/fi/aurinkopaneelit-laskuri/jyvaskyla</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/jyvaskyla</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aurinkolaskuri.fi/fi/aurinkopaneelit-laskuri/lahti</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/lahti</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aurinkolaskuri.fi/fi/aurinkopaneelit-laskuri/kuopio</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/kuopio</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aurinkolaskuri.fi/fi/aurinkopaneelit-laskuri/pori</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/pori</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/lappeenranta</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/vaasa</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/kotka</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/joensuu</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/hameenlinna</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/seinajoki</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/rovaniemi</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/mikkeli</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/kouvola</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/imatra</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Region pages -->
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/uusimaa</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/pirkanmaa</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/varsinais-suomi</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/pohjois-pohjanmaa</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/keski-suomi</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/päijät-häme</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/pohjois-savo</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/satakunta</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/etelä-karjala</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/etelä-pohjanmaa</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/kymenlaakso</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/pohjois-karjala</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/kanta-häme</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/etelä-savo</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/lappi</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aurinkocalc.com/fi/aurinkopaneelit-laskuri/region/etelä-savo</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
