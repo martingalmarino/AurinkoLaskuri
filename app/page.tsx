@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { Calculator, Zap, TrendingUp, Shield, Target, Database, Mail, Phone, MapPin } from 'lucide-react'
 import { getAllKuntaSlugs } from '@/lib/kunnatFI'
-import HomepageCalculator from '@/components/HomepageCalculator'
 
 export default function HomePage() {
-  const kunnatSlugs = getAllKuntaSlugs().slice(0, 12); // Show first 12 for homepage
+  const allKunnatSlugs = getAllKuntaSlugs();
+  const kunnatSlugs = allKunnatSlugs.slice(0, 18); // Show first 18 for homepage
 
   return (
     <div className="min-h-screen">
@@ -19,9 +19,22 @@ export default function HomePage() {
             Käytämme FMI säteilytietoja ja Nord Pool sähkön hintoja tarkkojen laskelmien tekemiseen.
           </p>
           
-          {/* Homepage Calculator */}
-          <div className="mb-16">
-            <HomepageCalculator />
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+            <Link 
+              href="#kunnat"
+              className="group bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center"
+            >
+              <Calculator className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
+              Aloita laskenta
+            </Link>
+            <Link 
+              href="#kunnat"
+              className="group bg-white/80 backdrop-blur-sm hover:bg-white text-primary-600 font-semibold py-4 px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 border border-primary-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center"
+            >
+              <MapPin className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
+              Selaa kuntia
+            </Link>
           </div>
 
           {/* Key Features */}
@@ -58,12 +71,17 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Valitse kunta
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-4">
               Löydä aurinkopaneelien laskuri kotikuntasi tai lähikuntasi sivulta
             </p>
+            <div className="bg-primary-50 border border-primary-200 rounded-lg px-4 py-2 inline-block">
+              <span className="text-primary-700 font-semibold">
+                {allKunnatSlugs.length} kuntaa saatavilla
+              </span>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-4">
             {kunnatSlugs.map((slug) => {
               const kuntaName = slug.charAt(0).toUpperCase() + slug.slice(1).replace('-', ' ');
               return (
