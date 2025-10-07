@@ -12,7 +12,7 @@ export default function HomepageCalculator() {
   const [inputs, setInputs] = useState<SolarSystemInputs>({
     systemSizeKw: undefined,
     roofArea: undefined,
-    installationCost: undefined,
+    installationCost: 0,
     panelEfficiency: 0.19
   });
   const [result, setResult] = useState<ROICalculationResult | null>(null);
@@ -21,7 +21,7 @@ export default function HomepageCalculator() {
   const kunnat = getAllKuntaSlugs();
 
   const handleCalculate = async () => {
-    if (!selectedKunta || !inputs.systemSizeKw || !inputs.installationCost) {
+    if (!selectedKunta || !inputs.systemSizeKw || !inputs.installationCost || inputs.installationCost <= 0) {
       alert('Täytä kaikki pakolliset kentät');
       return;
     }
@@ -116,7 +116,7 @@ export default function HomepageCalculator() {
           <input
             type="number"
             value={inputs.installationCost || ''}
-            onChange={(e) => setInputs({...inputs, installationCost: parseFloat(e.target.value) || undefined})}
+            onChange={(e) => setInputs({...inputs, installationCost: parseFloat(e.target.value) || 0})}
             placeholder="Esim. 7500"
             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
           />
