@@ -246,47 +246,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Ota yhteyttä
-          </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Tarvitsetko apua aurinkopaneelien laskelmien kanssa? Ota yhteyttä!
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Yhteystiedot</h3>
-              <div className="space-y-3 text-left">
-                <p className="flex items-center text-gray-600">
-                  <Mail className="w-5 h-5 mr-3 text-primary-600" />
-                  info@aurinkolaskuri.fi
-                </p>
-                <p className="flex items-center text-gray-600">
-                  <Phone className="w-5 h-5 mr-3 text-primary-600" />
-                  +358 40 123 4567
-                </p>
-                <p className="flex items-center text-gray-600">
-                  <MapPin className="w-5 h-5 mr-3 text-primary-600" />
-                  Helsinki, Suomi
-                </p>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Palvelut</h3>
-              <div className="space-y-2 text-left text-gray-600">
-                <p>• ROI-laskelmat kaikille kunnille</p>
-                <p>• Ajantasaiset sähkön hinnat</p>
-                <p>• Paikallisten tukien tiedot</p>
-                <p>• Vertailu eri järjestelmille</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-br from-primary-600 to-primary-800">

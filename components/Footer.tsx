@@ -50,50 +50,20 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#features" className="text-white/80 hover:text-white transition-colors flex items-center group">
+                <Link href="/#features" className="text-white/80 hover:text-white transition-colors flex items-center group">
                   <div className="w-1 h-1 bg-white/60 rounded-full mr-3 group-hover:bg-white transition-colors"></div>
                   Tietoa palvelusta
                 </Link>
               </li>
               <li>
-                <Link href="#faq" className="text-white/80 hover:text-white transition-colors flex items-center group">
+                <Link href="/#faq" className="text-white/80 hover:text-white transition-colors flex items-center group">
                   <div className="w-1 h-1 bg-white/60 rounded-full mr-3 group-hover:bg-white transition-colors"></div>
                   Usein kysytyt kysymykset
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact" className="text-white/80 hover:text-white transition-colors flex items-center group">
-                  <div className="w-1 h-1 bg-white/60 rounded-full mr-3 group-hover:bg-white transition-colors"></div>
-                  Yhteystiedot
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6">Yhteystiedot</h3>
-            <div className="space-y-4">
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mr-4">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <span className="text-white/80">info@aurinkolaskuri.fi</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mr-4">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <span className="text-white/80">+358 40 123 4567</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mr-4">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <span className="text-white/80">Helsinki, Suomi</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Bottom Bar */}

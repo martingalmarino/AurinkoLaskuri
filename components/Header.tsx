@@ -48,12 +48,6 @@ export default function Header() {
             >
               FAQ
             </Link>
-            <Link 
-              href="/#contact" 
-              className="btn-ghost"
-            >
-              Yhteystiedot
-            </Link>
           </nav>
 
           {/* CTA Button */}
@@ -111,13 +105,6 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 FAQ
-              </Link>
-              <Link 
-                href="/#contact" 
-                className="btn-ghost justify-start"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Yhteystiedot
               </Link>
               <div className="pt-4 mt-4 border-t border-text-light/20">
                 <Link 
