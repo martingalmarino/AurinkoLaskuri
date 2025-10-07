@@ -39,7 +39,7 @@ export default function SmartContentLinks({ currentKunta, className = '' }: Smar
                     href={link.href}
                     className="inline-flex items-center px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 text-sm font-medium rounded-lg transition-colors border border-blue-200"
                   >
-                    {link.kunta.name}
+                    {link.text}
                   </Link>
                 ))}
             </div>
@@ -62,7 +62,7 @@ export default function SmartContentLinks({ currentKunta, className = '' }: Smar
                     href={link.href}
                     className="inline-flex items-center px-3 py-1.5 bg-green-50 hover:bg-green-100 text-green-700 text-sm font-medium rounded-lg transition-colors border border-green-200"
                   >
-                    {link.kunta.name}
+                    {link.text}
                   </Link>
                 ))}
             </div>
@@ -85,7 +85,7 @@ export default function SmartContentLinks({ currentKunta, className = '' }: Smar
                     href={link.href}
                     className="inline-flex items-center px-3 py-1.5 bg-purple-50 hover:bg-purple-100 text-purple-700 text-sm font-medium rounded-lg transition-colors border border-purple-200"
                   >
-                    {link.kunta.name}
+                    {link.text}
                   </Link>
                 ))}
             </div>

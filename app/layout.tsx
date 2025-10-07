@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -67,19 +68,23 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#1e40af" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://cdn.cookiehub.eu/c2/b09a7fff.js"></script>
-        <script type="text/javascript">
-          document.addEventListener("DOMContentLoaded", function(event) {
-            var cpm = {};
-            window.cookiehub.load(cpm);
-          });
-        </script>
       </head>
       <body className={inter.className}>
         <Header />
         <main>{children}</main>
         <Footer />
         {process.env.NODE_ENV === 'development' && <DataModeToggle />}
+        
+        {/* Cookiehub Scripts */}
+        <Script src="https://cdn.cookiehub.eu/c2/b09a7fff.js" strategy="afterInteractive" />
+        <Script id="cookiehub-init" strategy="afterInteractive">
+          {`
+            document.addEventListener("DOMContentLoaded", function(event) {
+              var cpm = {};
+              window.cookiehub.load(cpm);
+            });
+          `}
+        </Script>
       </body>
     </html>
   )

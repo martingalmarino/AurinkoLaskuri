@@ -63,18 +63,18 @@ export function generateSEOContent(
   currentKunta: KuntaData,
   baseContent: string
 ): string {
-  const interlinkingData = useInterlinking(currentKunta);
+  const suggestions = getInterlinkingSuggestions(currentKunta);
   
   let enhancedContent = baseContent;
   
   // Add region context
-  if (interlinkingData.seoContext.regionContext) {
-    enhancedContent += ` ${interlinkingData.seoContext.regionContext}`;
+  if (suggestions.seoContext.regionContext) {
+    enhancedContent += ` ${suggestions.seoContext.regionContext}`;
   }
   
   // Add nearby context
-  if (interlinkingData.seoContext.nearbyContext) {
-    enhancedContent += ` ${interlinkingData.seoContext.nearbyContext}`;
+  if (suggestions.seoContext.nearbyContext) {
+    enhancedContent += ` ${suggestions.seoContext.nearbyContext}`;
   }
   
   return enhancedContent;
