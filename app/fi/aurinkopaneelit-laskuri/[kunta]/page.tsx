@@ -5,10 +5,13 @@ import { roiSolarCalculator } from '@/lib/roiSolarFI'
 import { faqGenerator } from '@/lib/faqJsonLd'
 import { SolarSystemInputs, ROICalculationResult } from '@/lib/types'
 import { dataService } from '@/lib/dataService'
+import { getInterlinkingSuggestions } from '@/lib/interlinkingLogic'
 import CalculatorWrapper from '@/components/CalculatorWrapper'
 import Hero from '@/components/Hero'
 import FAQAccordion from '@/components/FAQAccordion'
 import LocalInstallers from '@/components/LocalInstallers'
+import RelatedMunicipalities from '@/components/RelatedMunicipalities'
+import SmartContentLinks from '@/components/SmartContentLinks'
 
 interface PageProps {
   params: {
@@ -34,8 +37,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
+  // Get interlinking suggestions for enhanced metadata
+  const interlinkingSuggestions = getInterlinkingSuggestions(kunta)
+  
   const title = `Aurinkopaneelit Laskuri ${kunta.name} - ROI ja Säästöt | AurinkoLaskuri`
-  const description = `Laske aurinkopaneelien takaisinmaksuaika ja säästöt ${kunta.name}ssa. Käytämme FMI säteilytietoja ja Nord Pool sähkön hintoja. Tuet: ${((kunta.subsidy.national.rate + kunta.subsidy.local.rate) * 100).toFixed(0)}%`
+  const description = `Laske aurinkopaneelien takaisinmaksuaika ja säästöt ${kunta.name}ssa. Käytämme FMI säteilytietoja ja Nord Pool sähkön hintoja. Tuet: ${((kunta.subsidy.national.rate + kunta.subsidy.local.rate) * 100).toFixed(0)}%. ${interlinkingSuggestions.seoContext.regionContext} ${interlinkingSuggestions.seoContext.nearbyContext}`
 
   return {
     title,
@@ -168,6 +174,16 @@ export default async function KuntaPage({ params }: PageProps) {
           electricityPrice={electricityPriceData.price}
           solarRadiation={solarRadiationData.annualRADGLO}
         />
+
+        {/* Smart Content Links */}
+        <section className="py-16 bg-white">
+          <div className="container-premium">
+            <SmartContentLinks currentKunta={kunta} />
+          </div>
+        </section>
+
+        {/* Related Municipalities */}
+        <RelatedMunicipalities currentKunta={kunta} />
 
       </main>
     </div>
