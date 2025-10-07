@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Sun, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Header() {
@@ -13,11 +13,8 @@ export default function Header() {
       <div className="container-premium">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-800 to-primary-900 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300">
-              <Sun className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-xl font-bold text-text-primary">
+          <Link href="/" className="group">
+            <span className="text-xl font-bold text-text-primary group-hover:text-primary-800 transition-colors">
               AurinkoLaskuri
             </span>
           </Link>
