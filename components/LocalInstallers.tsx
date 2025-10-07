@@ -158,24 +158,6 @@ export default function LocalInstallers({ kunta }: LocalInstallersProps) {
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 text-center">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">
-            Löysitkö sopivan asennusyrityksen?
-          </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Jos et löytänyt sopivaa yritystä tai tarvitset lisäapua valinnassa, 
-            ota yhteyttä ja autamme löytämään parhaan ratkaisun tarpeisiisi.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-primary">
-              Pyydä useita tarjouksia
-            </button>
-            <button className="btn-secondary">
-              Ota yhteyttä neuvonantajaan
-            </button>
-          </div>
-        </div>
 
         {/* Disclaimer */}
         <div className="mt-8 text-center">
