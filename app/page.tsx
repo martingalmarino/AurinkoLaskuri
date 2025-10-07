@@ -10,6 +10,15 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-solar-50 via-primary-50 to-success-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          {/* Breadcrumbs */}
+          <nav className="mb-8" aria-label="Breadcrumb">
+            <ol className="flex items-center justify-center space-x-2 text-sm text-gray-600">
+              <li>
+                <span className="text-gray-900 font-medium">Koti</span>
+              </li>
+            </ol>
+          </nav>
+
           <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             Aurinkopaneelien ROI Laskuri
           </h1>
@@ -18,12 +27,19 @@ export default function HomePage() {
             Käytämme FMI säteilytietoja ja Nord Pool sähkön hintoja tarkkojen laskelmien tekemiseen.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link href="/fi/aurinkopaneelit-laskuri/helsinki" className="btn-primary text-lg px-8 py-4">
-              <Calculator className="w-5 h-5 mr-2" />
+          {/* Improved CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 max-w-md mx-auto">
+            <Link 
+              href="/fi/aurinkopaneelit-laskuri/helsinki" 
+              className="group bg-primary-800 hover:bg-primary-900 text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
+            >
+              <Calculator className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
               Aloita laskenta
             </Link>
-            <Link href="#kunnat" className="btn-secondary text-lg px-8 py-4">
+            <Link 
+              href="#kunnat" 
+              className="group bg-white hover:bg-gray-50 text-gray-900 font-semibold py-4 px-8 rounded-2xl border-2 border-gray-200 hover:border-primary-300 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-sm hover:shadow-md transform hover:-translate-y-1 flex items-center justify-center"
+            >
               Selaa kuntia
             </Link>
           </div>
@@ -149,7 +165,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary-600">
+      <section className="py-16 bg-gradient-to-br from-primary-600 to-primary-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Aloita aurinkopaneelien laskenta tänään
@@ -157,8 +173,11 @@ export default function HomePage() {
           <p className="text-xl text-primary-100 mb-8">
             Laske takaisinmaksuaika ja säästöt kotikuntasi tiedoilla
           </p>
-          <Link href="/fi/aurinkopaneelit-laskuri/helsinki" className="bg-white text-primary-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors inline-flex items-center">
-            <Calculator className="w-5 h-5 mr-2" />
+          <Link 
+            href="/fi/aurinkopaneelit-laskuri/helsinki" 
+            className="group bg-white text-primary-600 hover:bg-gray-50 font-semibold py-4 px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center"
+          >
+            <Calculator className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
             Aloita laskenta
           </Link>
         </div>

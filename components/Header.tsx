@@ -31,7 +31,7 @@ export default function Header() {
               Koti
             </Link>
             <Link 
-              href="/fi/aurinkopaneelit-laskuri/helsinki" 
+              href="/#kunnat" 
               className="btn-ghost"
             >
               Laskuri
@@ -92,7 +92,7 @@ export default function Header() {
                 Koti
               </Link>
               <Link 
-                href="/fi/aurinkopaneelit-laskuri/helsinki" 
+                href="/#kunnat" 
                 className="btn-ghost justify-start"
                 onClick={() => setIsMenuOpen(false)}
               >
