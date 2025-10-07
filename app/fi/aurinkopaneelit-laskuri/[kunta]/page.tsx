@@ -9,9 +9,6 @@ import CalculatorWrapper from '@/components/CalculatorWrapper'
 import Hero from '@/components/Hero'
 import FAQAccordion from '@/components/FAQAccordion'
 import LocalInstallers from '@/components/LocalInstallers'
-import FeatureStrip from '@/components/FeatureStrip'
-import KuntaPills from '@/components/KuntaPills'
-import HowItWorks from '@/components/HowItWorks'
 
 interface PageProps {
   params: {
@@ -142,20 +139,12 @@ export default async function KuntaPage({ params }: PageProps) {
         />
 
         {/* Calculator Section */}
-        <section className="py-16 -mt-8 relative z-10">
+        <section id="calculator" className="py-16 -mt-8 relative z-10">
           <div className="container-premium">
             <CalculatorWrapper kunta={kunta} />
           </div>
         </section>
 
-        {/* Feature Strip */}
-        <FeatureStrip />
-
-        {/* Kunta Pills */}
-        <KuntaPills currentKunta={params.kunta} />
-
-        {/* How It Works */}
-        <HowItWorks />
 
         {/* FAQ Section */}
         <section id="faq" className="py-20 bg-bg-primary">
@@ -177,79 +166,12 @@ export default async function KuntaPage({ params }: PageProps) {
         </section>
 
         {/* Local Installers */}
-        <LocalInstallers kunta={kunta} />
+        <LocalInstallers 
+          kunta={kunta} 
+          electricityPrice={electricityPriceData.price}
+          solarRadiation={solarRadiationData.annualRADGLO}
+        />
 
-        {/* Additional Local Information */}
-        <section className="py-20 bg-bg-secondary">
-          <div className="container-premium">
-            <div className="card-premium p-8">
-              <h2 className="text-2xl font-bold text-center mb-8">
-                Lisätietoja aurinkopaneelien asentamisesta {kunta.name}ssa
-              </h2>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-lg font-semibold mb-4">
-                    Paikalliset olosuhteet
-                  </h3>
-                  <ul className="space-y-3 text-sm">
-                    <li className="flex justify-between">
-                      <span className="text-text-muted">Vuotuinen aurinkosäteily:</span>
-                      <span className="font-semibold">{solarRadiationData.annualRADGLO} kWh/m²</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span className="text-text-muted">Alue:</span>
-                      <span className="font-semibold">{kunta.region}</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span className="text-text-muted">Asukasluku:</span>
-                      <span className="font-semibold">{kunta.population.toLocaleString('fi-FI')}</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span className="text-text-muted">FMI-asema:</span>
-                      <span className="font-semibold">{kunta.fmiStation}</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="text-lg font-semibold mb-4">
-                    Saatavilla olevat tuet
-                  </h3>
-                  <ul className="space-y-3 text-sm">
-                    <li className="flex justify-between">
-                      <span className="text-text-muted">Valtion tuki:</span>
-                      <span className="font-semibold text-primary-800">{(kunta.subsidy.national.rate * 100).toFixed(0)}%</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span className="text-text-muted">Paikallinen tuki:</span>
-                      <span className="font-semibold text-success-800">{(kunta.subsidy.local.rate * 100).toFixed(0)}%</span>
-                    </li>
-                    <li className="flex justify-between border-t border-text-light/20 pt-3">
-                      <span className="font-semibold">Yhteensä:</span>
-                      <span className="font-bold text-text-primary text-lg">{((kunta.subsidy.national.rate + kunta.subsidy.local.rate) * 100).toFixed(0)}%</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span className="text-text-muted">Nykyinen sähkön hinta:</span>
-                      <span className="font-semibold">{electricityPriceData.price.toFixed(3)} €/kWh</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div className="mt-8 p-6 bg-gradient-to-br from-primary-50 to-primary-100 border border-primary-200 rounded-xl">
-                <h3 className="text-lg font-semibold text-primary-900 mb-3">
-                  💡 Vinkki {kunta.name}ssa
-                </h3>
-                <p className="text-primary-800">
-                  {kunta.name}ssa aurinkopaneelien asennus on erityisen kannattavaa {kunta.region} alueen 
-                  hyvän aurinkosäteilyn ja {((kunta.subsidy.national.rate + kunta.subsidy.local.rate) * 100).toFixed(0)}% 
-                  tukejen ansiosta. Takaisinmaksuaika on yleensä 6-12 vuotta.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
     </div>
   )

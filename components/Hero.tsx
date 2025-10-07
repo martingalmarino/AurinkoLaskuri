@@ -14,22 +14,16 @@ interface HeroProps {
 export default function Hero({ kunta, electricityPrice, solarRadiation }: HeroProps) {
   const trustChips = [
     {
-      icon: Database,
       label: 'FMI Data',
-      value: 'Live säteilytiedot',
-      color: 'trust-chip-primary'
+      color: 'bg-blue-100 text-blue-800'
     },
     {
-      icon: TrendingUp,
-      label: 'Nord Pool',
-      value: electricityPrice ? `${electricityPrice.toFixed(3)} €/kWh` : 'Live hinnat',
-      color: 'trust-chip-success'
+      label: 'Local Subsidies',
+      color: 'bg-green-100 text-green-800'
     },
     {
-      icon: Shield,
-      label: 'Paikalliset tuet',
-      value: `${((kunta.subsidy.national.rate + kunta.subsidy.local.rate) * 100).toFixed(0)}%`,
-      color: 'trust-chip-success'
+      label: 'Updated Weekly',
+      color: 'bg-purple-100 text-purple-800'
     }
   ];
 
@@ -69,108 +63,27 @@ export default function Hero({ kunta, electricityPrice, solarRadiation }: HeroPr
             Käytämme ajantasaisia sähkön hintoja ja paikallisia säteilytietoja tarkkojen laskelmien tekemiseen.
           </p>
 
-          {/* Trust Chips */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {/* Simple Trust Chips */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
             {trustChips.map((chip, index) => (
-              <div key={index} className={`trust-chip ${chip.color} animate-fade-in`} style={{ animationDelay: `${index * 0.1}s` }}>
-                <chip.icon className="w-4 h-4 mr-2" />
-                <span className="font-semibold">{chip.label}:</span>
-                <span className="ml-2">{chip.value}</span>
-              </div>
+              <span key={index} className={`px-4 py-2 rounded-full text-sm font-medium ${chip.color} animate-fade-in`} style={{ animationDelay: `${index * 0.1}s` }}>
+                {chip.label}
+              </span>
             ))}
           </div>
 
-          {/* Key Benefits */}
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="feature-card animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="w-6 h-6 text-primary-800" />
-              </div>
-              <h3 className="font-semibold mb-3">Tarkka ROI-laskenta</h3>
-              <p className="text-sm">
-                Käyttää paikallisia sähkön hintoja ja säteilytietoja
-              </p>
-            </div>
-            <div className="feature-card animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <div className="w-12 h-12 bg-success-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-6 h-6 text-success-800" />
-              </div>
-              <h3 className="font-semibold mb-3">Tuettuja laskelmia</h3>
-              <p className="text-sm">
-                Huomioi valtion ja paikalliset tuet automaattisesti
-              </p>
-            </div>
-            <div className="feature-card animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Database className="w-6 h-6 text-primary-800" />
-              </div>
-              <h3 className="font-semibold mb-3">Päivitetty data</h3>
-              <p className="text-sm">
-                FMI säteilytiedot ja Nord Pool sähkön hinnat
-              </p>
-            </div>
+          {/* Primary CTA */}
+          <div className="text-center">
+            <a 
+              href="#calculator"
+              className="group bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center"
+            >
+              <TrendingUp className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
+              Aloita laskenta
+            </a>
           </div>
         </div>
 
-        {/* Local Context Info */}
-        <div className="card-premium p-8 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: '0.5s' }}>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <div className="flex items-center mb-4">
-                <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center mr-3">
-                  <MapPin className="w-4 h-4 text-primary-800" />
-                </div>
-                <h3 className="font-semibold">
-                  {kunta.name} - Paikalliset tiedot
-                </h3>
-              </div>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-text-muted">Alue:</span>
-                  <span className="font-medium">{kunta.region}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-text-muted">Asukasluku:</span>
-                  <span className="font-medium">{kunta.population.toLocaleString('fi-FI')}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-text-muted">FMI-asema:</span>
-                  <span className="font-medium">{kunta.fmiStation}</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center mb-4">
-                <div className="w-8 h-8 bg-success-100 rounded-lg flex items-center justify-center mr-3">
-                  <Shield className="w-4 h-4 text-success-800" />
-                </div>
-                <h3 className="font-semibold">
-                  Saatavilla olevat tuet
-                </h3>
-              </div>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-text-muted">Valtion tuki:</span>
-                  <span className="font-semibold text-primary-800">
-                    {(kunta.subsidy.national.rate * 100).toFixed(0)}%
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-text-muted">Paikallinen tuki:</span>
-                  <span className="font-semibold text-success-800">
-                    {(kunta.subsidy.local.rate * 100).toFixed(0)}%
-                  </span>
-                </div>
-                <div className="flex justify-between pt-3 border-t border-text-light/20">
-                  <span className="font-semibold">Yhteensä:</span>
-                  <span className="font-bold text-text-primary text-lg">
-                    {((kunta.subsidy.national.rate + kunta.subsidy.local.rate) * 100).toFixed(0)}%
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -19,6 +19,8 @@ interface Installer {
 
 interface LocalInstallersProps {
   kunta: KuntaData;
+  electricityPrice?: number;
+  solarRadiation?: number;
 }
 
 // Mock data - in production this would come from an API
@@ -61,7 +63,7 @@ const getMockInstallers = (kunta: KuntaData): Installer[] => [
   }
 ];
 
-export default function LocalInstallers({ kunta }: LocalInstallersProps) {
+export default function LocalInstallers({ kunta, electricityPrice, solarRadiation }: LocalInstallersProps) {
   const installers = getMockInstallers(kunta);
 
   return (
@@ -158,6 +160,75 @@ export default function LocalInstallers({ kunta }: LocalInstallersProps) {
           ))}
         </div>
 
+        {/* Local Information */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
+          <h3 className="text-xl font-semibold text-gray-900 mb-6 text-center">
+            Lisätietoja aurinkopaneelien asentamisesta {kunta.name}ssa
+          </h3>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-gray-900">
+                Paikalliset olosuhteet
+              </h4>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Vuotuinen aurinkosäteily:</span>
+                  <span className="font-semibold">{solarRadiation} kWh/m²</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Alue:</span>
+                  <span className="font-semibold">{kunta.region}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Asukasluku:</span>
+                  <span className="font-semibold">{kunta.population.toLocaleString('fi-FI')}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">FMI-asema:</span>
+                  <span className="font-semibold">{kunta.fmiStation}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Nykyinen sähkön hinta:</span>
+                  <span className="font-semibold">{electricityPrice?.toFixed(3)} €/kWh</span>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-gray-900">
+                Saatavilla olevat tuet
+              </h4>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Valtion tuki:</span>
+                  <span className="font-semibold text-blue-600">{(kunta.subsidy.national.rate * 100).toFixed(0)}%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Paikallinen tuki:</span>
+                  <span className="font-semibold text-green-600">{(kunta.subsidy.local.rate * 100).toFixed(0)}%</span>
+                </div>
+                <div className="flex justify-between pt-3 border-t border-gray-200">
+                  <span className="font-semibold">Yhteensä:</span>
+                  <span className="font-bold text-gray-900 text-lg">{((kunta.subsidy.national.rate + kunta.subsidy.local.rate) * 100).toFixed(0)}%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-6 p-4 bg-gradient-to-br from-blue-50 to-green-50 border border-blue-200 rounded-xl">
+            <div className="flex items-start">
+              <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+                <span className="text-blue-800 text-xs font-bold">💡</span>
+              </div>
+              <p className="text-blue-800 text-sm">
+                <strong>Vinkki:</strong> {kunta.name}ssa aurinkopaneelien asennus on erityisen kannattavaa {kunta.region} alueen 
+                hyvän aurinkosäteilyn ja {((kunta.subsidy.national.rate + kunta.subsidy.local.rate) * 100).toFixed(0)}% 
+                tukejen ansiosta. Takaisinmaksuaika on yleensä 6-12 vuotta.
+              </p>
+            </div>
+          </div>
+        </div>
 
         {/* Disclaimer */}
         <div className="mt-8 text-center">
