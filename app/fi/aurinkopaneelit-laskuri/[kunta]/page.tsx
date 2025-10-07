@@ -5,7 +5,6 @@ import { roiSolarCalculator } from '@/lib/roiSolarFI'
 import { faqGenerator } from '@/lib/faqJsonLd'
 import { SolarSystemInputs, ROICalculationResult } from '@/lib/types'
 import { getMockSolarRadiation, getMockElectricityPrice } from '@/lib/mockData'
-import Header from '@/components/Header'
 import CalculatorWrapper from '@/components/CalculatorWrapper'
 import Hero from '@/components/Hero'
 import FAQAccordion from '@/components/FAQAccordion'
@@ -13,7 +12,6 @@ import LocalInstallers from '@/components/LocalInstallers'
 import FeatureStrip from '@/components/FeatureStrip'
 import KuntaPills from '@/components/KuntaPills'
 import HowItWorks from '@/components/HowItWorks'
-import Footer from '@/components/Footer'
 
 interface PageProps {
   params: {
@@ -126,7 +124,6 @@ export default async function KuntaPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-bg-primary">
-      <Header />
       
       {/* JSON-LD FAQ Schema */}
       <script
@@ -254,8 +251,6 @@ export default async function KuntaPage({ params }: PageProps) {
           </div>
         </section>
       </main>
-      
-      <Footer />
     </div>
   )
 }
