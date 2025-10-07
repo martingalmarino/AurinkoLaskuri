@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Calculator, Zap, TrendingUp, Shield, Target, Database, Mail, Phone, MapPin } from 'lucide-react'
 import { getAllKuntaSlugs } from '@/lib/kunnatFI'
+import HomepageCalculator from '@/components/HomepageCalculator'
 
 export default function HomePage() {
   const kunnatSlugs = getAllKuntaSlugs().slice(0, 12); // Show first 12 for homepage
@@ -18,21 +19,9 @@ export default function HomePage() {
             Käytämme FMI säteilytietoja ja Nord Pool sähkön hintoja tarkkojen laskelmien tekemiseen.
           </p>
           
-          {/* Improved CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 max-w-md mx-auto">
-            <Link 
-              href="/fi/aurinkopaneelit-laskuri/helsinki" 
-              className="group bg-primary-800 hover:bg-primary-900 text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
-            >
-              <Calculator className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
-              Aloita laskenta
-            </Link>
-            <Link 
-              href="#kunnat" 
-              className="group bg-white hover:bg-gray-50 text-gray-900 font-semibold py-4 px-8 rounded-2xl border-2 border-gray-200 hover:border-primary-300 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-sm hover:shadow-md transform hover:-translate-y-1 flex items-center justify-center"
-            >
-              Selaa kuntia
-            </Link>
+          {/* Homepage Calculator */}
+          <div className="mb-16">
+            <HomepageCalculator />
           </div>
 
           {/* Key Features */}
@@ -96,10 +85,10 @@ export default function HomePage() {
 
           <div className="text-center mt-8">
             <Link 
-              href="/fi/aurinkopaneelit-laskuri/helsinki"
+              href="#kunnat"
               className="btn-primary"
             >
-              Aloita laskenta Helsingissä
+              Selaa kaikkia kuntia
             </Link>
           </div>
         </div>
@@ -257,11 +246,11 @@ export default function HomePage() {
             Laske takaisinmaksuaika ja säästöt kotikuntasi tiedoilla
           </p>
           <Link 
-            href="/fi/aurinkopaneelit-laskuri/helsinki" 
+            href="#kunnat" 
             className="group bg-white text-primary-600 hover:bg-gray-50 font-semibold py-4 px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center"
           >
             <Calculator className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
-            Aloita laskenta
+            Selaa kuntia
           </Link>
         </div>
       </section>
