@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { CheckCircle, Globe, TrendingUp, Shield, Database, Clock, Users, Target } from 'lucide-react';
+import { TrendingUp, Shield, Database, Target } from 'lucide-react';
 
 const features = [
   {
@@ -55,40 +55,6 @@ export default function FeatureStrip() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Trust Indicators */}
-        <div className="card-premium p-8">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Users className="w-6 h-6 text-primary-800" />
-              </div>
-              <div className="text-3xl font-bold text-primary-800 mb-2">20+</div>
-              <p className="text-sm text-text-muted">Kuntaa</p>
-            </div>
-            <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="w-12 h-12 bg-success-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="w-6 h-6 text-success-800" />
-              </div>
-              <div className="text-3xl font-bold text-success-800 mb-2">1000+</div>
-              <p className="text-sm text-text-muted">Laskelmaa</p>
-            </div>
-            <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-6 h-6 text-primary-800" />
-              </div>
-              <div className="text-3xl font-bold text-primary-800 mb-2">24/7</div>
-              <p className="text-sm text-text-muted">Päivitetyt tiedot</p>
-            </div>
-            <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <div className="w-12 h-12 bg-success-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-6 h-6 text-success-800" />
-              </div>
-              <div className="text-3xl font-bold text-success-800 mb-2">100%</div>
-              <p className="text-sm text-text-muted">Ilmainen</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

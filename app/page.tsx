@@ -10,15 +10,6 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-solar-50 via-primary-50 to-success-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Breadcrumbs */}
-          <nav className="mb-8" aria-label="Breadcrumb">
-            <ol className="flex items-center justify-center space-x-2 text-sm text-gray-600">
-              <li>
-                <span className="text-gray-900 font-medium">Koti</span>
-              </li>
-            </ol>
-          </nav>
-
           <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             Aurinkopaneelien ROI Laskuri
           </h1>

@@ -37,24 +37,26 @@ export default function Hero({ kunta, electricityPrice, solarRadiation }: HeroPr
     <section className="gradient-hero py-20 lg:py-28">
       <div className="container-hero">
         {/* Breadcrumbs */}
-        <nav className="mb-8" aria-label="Breadcrumb">
-          <ol className="flex items-center space-x-2 text-sm text-text-muted">
-            <li>
-              <Link href="/" className="hover:text-primary-800 transition-colors">
-                Koti
-              </Link>
-            </li>
-            <li className="flex items-center">
-              <span className="mx-2">/</span>
-              <Link href="/fi/aurinkopaneelit-laskuri/helsinki" className="hover:text-primary-800 transition-colors">
-                Aurinkopaneelit
-              </Link>
-            </li>
-            <li className="flex items-center">
-              <span className="mx-2">/</span>
-              <span className="text-text-primary font-medium">{kunta.name}</span>
-            </li>
-          </ol>
+        <nav className="mb-12" aria-label="Breadcrumb">
+          <div className="flex items-center justify-center">
+            <ol className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 shadow-sm">
+              <li>
+                <Link href="/" className="text-sm text-gray-600 hover:text-primary-700 transition-colors font-medium">
+                  Koti
+                </Link>
+              </li>
+              <li className="flex items-center">
+                <span className="mx-2 text-gray-400">/</span>
+                <Link href="/#kunnat" className="text-sm text-gray-600 hover:text-primary-700 transition-colors font-medium">
+                  Aurinkopaneelit
+                </Link>
+              </li>
+              <li className="flex items-center">
+                <span className="mx-2 text-gray-400">/</span>
+                <span className="text-sm text-gray-900 font-semibold">{kunta.name}</span>
+              </li>
+            </ol>
+          </div>
         </nav>
 
         {/* Main Hero Content */}
