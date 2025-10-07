@@ -164,7 +164,7 @@ export default function HomepageCalculator() {
             <div className="grid grid-cols-2 gap-4 text-center">
               <div>
                 <div className="text-2xl font-bold text-primary-800">
-                  {result.paybackPeriodYears.toFixed(1)} v
+                  {result.roiYears.toFixed(1)} v
                 </div>
                 <div className="text-sm text-primary-600">Takaisinmaksuaika</div>
               </div>
