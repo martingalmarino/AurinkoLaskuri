@@ -32,12 +32,5 @@
         }
       ]
     }
-  ],
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/fi/aurinkopaneelit-laskuri/helsinki",
-      "permanent": false
-    }
   ]
 }
