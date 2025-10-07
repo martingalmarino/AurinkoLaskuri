@@ -106,9 +106,9 @@ export const mockElectricityPrice: ElectricityPrice = {
   source: 'mock',
 };
 
-export function getMockSolarRadiation(place: string): SolarRadiationData {
-  return mockSolarRadiationData[place] || {
-    place,
+export function getMockSolarRadiation(fmiStation: string): SolarRadiationData {
+  return mockSolarRadiationData[fmiStation] || {
+    place: fmiStation,
     annualRADGLO: 900, // Promedio Finlandia
     monthlyRADGLO: [30, 60, 120, 180, 220, 240, 200, 140, 80, 40, 25, 15],
     lastUpdated: new Date().toISOString(),

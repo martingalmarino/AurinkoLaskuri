@@ -1,7 +1,7 @@
 import { fmiClient } from './fmiClient';
 import { nordPoolClient } from './nordPoolClient';
 import { getMockSolarRadiation, getMockElectricityPrice } from './mockData';
-import { FMIAPIResponse, NordPoolPriceData } from './types';
+import { SolarRadiationData, ElectricityPrice } from './types';
 
 export class DataService {
   private static instance: DataService;
@@ -19,18 +19,12 @@ export class DataService {
     return DataService.instance;
   }
 
-  async getSolarRadiation(fmiStation: string): Promise<FMIAPIResponse> {
+  async getSolarRadiation(fmiStation: string): Promise<SolarRadiationData> {
     if (this.useRealAPIs) {
       try {
         console.log(`Fetching real FMI data for ${fmiStation}`);
         const data = await fmiClient.getSolarRadiation(fmiStation);
-        
-        return {
-          place: data.place,
-          annualRADGLO: data.annualRADGLO,
-          unit: 'kWh/m2',
-          timestamp: data.lastUpdated,
-        };
+        return data;
       } catch (error) {
         console.error(`FMI API failed for ${fmiStation}, using fallback:`, error);
         return getMockSolarRadiation(fmiStation);
@@ -41,18 +35,12 @@ export class DataService {
     }
   }
 
-  async getElectricityPrice(): Promise<NordPoolPriceData> {
+  async getElectricityPrice(): Promise<ElectricityPrice> {
     if (this.useRealAPIs) {
       try {
         console.log('Fetching real Nord Pool electricity price data');
         const data = await nordPoolClient.getElectricityPrice();
-        
-        return {
-          price: data.price,
-          unit: '€/kWh',
-          currency: 'EUR',
-          timestamp: data.lastUpdated,
-        };
+        return data;
       } catch (error) {
         console.error('Nord Pool API failed, using fallback:', error);
         return getMockElectricityPrice();
