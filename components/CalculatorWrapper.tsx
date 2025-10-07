@@ -2,7 +2,7 @@
 
 import { KuntaData, SolarSystemInputs, ROICalculationResult } from '@/lib/types'
 import { roiSolarCalculator } from '@/lib/roiSolarFI'
-import { getMockSolarRadiation, getMockElectricityPrice } from '@/lib/mockData'
+import { dataService } from '@/lib/dataService'
 import PremiumCalculator from './PremiumCalculator'
 
 interface CalculatorWrapperProps {
@@ -11,10 +11,10 @@ interface CalculatorWrapperProps {
 
 export default function CalculatorWrapper({ kunta }: CalculatorWrapperProps) {
   const handleCalculate = async (inputs: SolarSystemInputs): Promise<ROICalculationResult> => {
-    // Use mock data for calculations
-    const solarRadiationData = getMockSolarRadiation(kunta.fmiStation)
-    const electricityPriceData = getMockElectricityPrice()
-    
+    // Fetch fresh data for calculations
+    const solarRadiationData = await dataService.getSolarRadiation(kunta.fmiStation)
+    const electricityPriceData = await dataService.getElectricityPrice()
+
     return roiSolarCalculator.calculateROI(
       inputs,
       solarRadiationData,

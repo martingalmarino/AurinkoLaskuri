@@ -4,7 +4,7 @@ import { getKuntaBySlug, getAllKuntaSlugs } from '@/lib/kunnatFI'
 import { roiSolarCalculator } from '@/lib/roiSolarFI'
 import { faqGenerator } from '@/lib/faqJsonLd'
 import { SolarSystemInputs, ROICalculationResult } from '@/lib/types'
-import { getMockSolarRadiation, getMockElectricityPrice } from '@/lib/mockData'
+import { dataService } from '@/lib/dataService'
 import CalculatorWrapper from '@/components/CalculatorWrapper'
 import Hero from '@/components/Hero'
 import FAQAccordion from '@/components/FAQAccordion'
@@ -92,9 +92,9 @@ export default async function KuntaPage({ params }: PageProps) {
     notFound()
   }
 
-  // Use mock data for now (APIs can be enabled later)
-  const solarRadiationData = getMockSolarRadiation(kunta.fmiStation)
-  const electricityPriceData = getMockElectricityPrice()
+  // Fetch data using the data service (real APIs in production, mock in development)
+  const solarRadiationData = await dataService.getSolarRadiation(kunta.fmiStation)
+  const electricityPriceData = await dataService.getElectricityPrice()
 
   // Calculate default ROI for metadata
   const defaultInputs = {
