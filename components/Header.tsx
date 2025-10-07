@@ -54,7 +54,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center">
             <Link 
               href="/fi/aurinkopaneelit-laskuri/helsinki"
-              className="btn-primary"
+              className="bg-primary-800 hover:bg-primary-900 text-white font-semibold py-2 px-4 rounded-pill transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-sm hover:shadow-md text-sm"
             >
               Laske ROI
             </Link>
@@ -109,7 +109,7 @@ export default function Header() {
               <div className="pt-4 mt-4 border-t border-text-light/20">
                 <Link 
                   href="/fi/aurinkopaneelit-laskuri/helsinki"
-                  className="btn-primary w-full justify-center"
+                  className="bg-primary-800 hover:bg-primary-900 text-white font-semibold py-2 px-4 rounded-pill transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-sm hover:shadow-md text-sm w-full justify-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Laske ROI

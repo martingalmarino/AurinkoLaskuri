@@ -63,18 +63,7 @@ export default function FAQAccordion({ faqs, title = "Usein Kysytyt Kysymykset" 
   };
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center mb-4">
-            <HelpCircle className="w-8 h-8 text-primary-600 mr-3" />
-            <h2 className="text-3xl font-bold text-gray-900">{title}</h2>
-          </div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Löydä vastaukset yleisimpiin kysymyksiin aurinkopaneelien asentamisesta ja käytöstä
-          </p>
-        </div>
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Toggle Buttons */}
         <div className="flex justify-center mb-8">
@@ -125,7 +114,6 @@ export default function FAQAccordion({ faqs, title = "Usein Kysytyt Kysymykset" 
             </div>
           </div>
         </div>
-      </div>
-    </section>
+    </div>
   );
 }
