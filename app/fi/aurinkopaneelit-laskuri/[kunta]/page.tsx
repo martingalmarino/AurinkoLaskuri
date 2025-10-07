@@ -131,19 +131,16 @@ export default async function KuntaPage({ params }: PageProps) {
       />
 
       <main>
-        {/* Hero Section */}
+        {/* Hero Section with integrated Calculator */}
         <Hero 
           kunta={kunta}
           electricityPrice={electricityPriceData.price}
           solarRadiation={solarRadiationData.annualRADGLO}
-        />
-
-        {/* Calculator Section */}
-        <section id="calculator" className="py-16 -mt-8 relative z-10">
+        >
           <div className="container-premium">
             <CalculatorWrapper kunta={kunta} />
           </div>
-        </section>
+        </Hero>
 
 
         {/* FAQ Section */}

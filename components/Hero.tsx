@@ -9,9 +9,10 @@ interface HeroProps {
   kunta: KuntaData;
   electricityPrice?: number;
   solarRadiation?: number;
+  children?: React.ReactNode;
 }
 
-export default function Hero({ kunta, electricityPrice, solarRadiation }: HeroProps) {
+export default function Hero({ kunta, electricityPrice, solarRadiation, children }: HeroProps) {
   const trustChips = [
     {
       label: 'FMI Data',
@@ -72,16 +73,13 @@ export default function Hero({ kunta, electricityPrice, solarRadiation }: HeroPr
             ))}
           </div>
 
-          {/* Primary CTA */}
-          <div className="text-center">
-            <a 
-              href="#calculator"
-              className="group bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center"
-            >
-              <TrendingUp className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
-              Aloita laskenta
-            </a>
-          </div>
+          {/* Children content (Calculator) */}
+          {children && (
+            <div className="mt-12">
+              {children}
+            </div>
+          )}
+
         </div>
 
       </div>
