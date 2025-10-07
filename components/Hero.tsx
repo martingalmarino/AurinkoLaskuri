@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { TrendingUp, Shield, Database, MapPin } from 'lucide-react';
 import { KuntaData } from '@/lib/types';
 
@@ -39,15 +40,15 @@ export default function Hero({ kunta, electricityPrice, solarRadiation }: HeroPr
         <nav className="mb-8" aria-label="Breadcrumb">
           <ol className="flex items-center space-x-2 text-sm text-text-muted">
             <li>
-              <a href="/" className="hover:text-primary-800 transition-colors">
+              <Link href="/" className="hover:text-primary-800 transition-colors">
                 Koti
-              </a>
+              </Link>
             </li>
             <li className="flex items-center">
               <span className="mx-2">/</span>
-              <a href="/fi/aurinkopaneelit-laskuri" className="hover:text-primary-800 transition-colors">
+              <Link href="/fi/aurinkopaneelit-laskuri/helsinki" className="hover:text-primary-800 transition-colors">
                 Aurinkopaneelit
-              </a>
+              </Link>
             </li>
             <li className="flex items-center">
               <span className="mx-2">/</span>

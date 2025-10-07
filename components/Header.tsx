@@ -25,6 +25,12 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             <Link 
+              href="/" 
+              className="btn-ghost"
+            >
+              Koti
+            </Link>
+            <Link 
               href="/fi/aurinkopaneelit-laskuri/helsinki" 
               className="btn-ghost"
             >
@@ -78,6 +84,13 @@ export default function Header() {
         {isMenuOpen && (
           <div className="lg:hidden py-4 border-t border-text-light/20 animate-slide-up">
             <nav className="flex flex-col space-y-2">
+              <Link 
+                href="/" 
+                className="btn-ghost justify-start"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Koti
+              </Link>
               <Link 
                 href="/fi/aurinkopaneelit-laskuri/helsinki" 
                 className="btn-ghost justify-start"

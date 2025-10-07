@@ -64,56 +64,55 @@ export default function FAQAccordion({ faqs, title = "Usein Kysytyt Kysymykset" 
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Toggle Buttons */}
+      <div className="flex justify-center mb-8">
+        <div className="bg-gray-100 rounded-lg p-1">
+          <button
+            onClick={openAll}
+            className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            Avaa kaikki
+          </button>
+          <button
+            onClick={closeAll}
+            className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            Sulje kaikki
+          </button>
+        </div>
+      </div>
 
-        {/* Toggle Buttons */}
-        <div className="flex justify-center mb-8">
-          <div className="bg-gray-100 rounded-lg p-1">
-            <button
-              onClick={openAll}
-              className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Avaa kaikki
+      {/* FAQ Items */}
+      <div className="space-y-3">
+        {faqs.map((faq, index) => (
+          <FAQItemComponent
+            key={index}
+            faq={faq}
+            isOpen={openItems.has(index)}
+            onToggle={() => toggleItem(index)}
+          />
+        ))}
+      </div>
+
+      {/* Additional Help */}
+      <div className="mt-12 text-center">
+        <div className="bg-gray-50 rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            Etsitkö lisätietoja?
+          </h3>
+          <p className="text-gray-600 mb-4">
+            Jos et löytänyt vastausta kysymykseesi, ota yhteyttä paikallisiin asennusyrityksiin saadaksesi henkilökohtaista neuvontaa.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <button className="btn-primary">
+              Ota yhteyttä asiantuntijoihin
             </button>
-            <button
-              onClick={closeAll}
-              className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Sulje kaikki
+            <button className="btn-secondary">
+              Lataa opas PDF:nä
             </button>
           </div>
         </div>
-
-        {/* FAQ Items */}
-        <div className="space-y-3">
-          {faqs.map((faq, index) => (
-            <FAQItemComponent
-              key={index}
-              faq={faq}
-              isOpen={openItems.has(index)}
-              onToggle={() => toggleItem(index)}
-            />
-          ))}
-        </div>
-
-        {/* Additional Help */}
-        <div className="mt-12 text-center">
-          <div className="bg-gray-50 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-              Etsitkö lisätietoja?
-            </h3>
-            <p className="text-gray-600 mb-4">
-              Jos et löytänyt vastausta kysymykseesi, ota yhteyttä paikallisiin asennusyrityksiin saadaksesi henkilökohtaista neuvontaa.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button className="btn-primary">
-                Ota yhteyttä asiantuntijoihin
-              </button>
-              <button className="btn-secondary">
-                Lataa opas PDF:nä
-              </button>
-            </div>
-          </div>
-        </div>
+      </div>
     </div>
   );
 }
