@@ -6,6 +6,8 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import DataModeToggle from '@/components/DataModeToggle'
 
+// Force new deployment
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
