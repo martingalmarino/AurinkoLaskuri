@@ -31,25 +31,25 @@ export default function Header() {
               Koti
             </Link>
             <Link 
-              href="/#kunnat" 
+              href="/" 
               className="btn-ghost"
             >
               Laskuri
             </Link>
             <Link 
-              href="#features" 
+              href="/#features" 
               className="btn-ghost"
             >
               Tietoa
             </Link>
             <Link 
-              href="#faq" 
+              href="/#faq" 
               className="btn-ghost"
             >
               FAQ
             </Link>
             <Link 
-              href="#contact" 
+              href="/#contact" 
               className="btn-ghost"
             >
               Yhteystiedot
@@ -92,28 +92,28 @@ export default function Header() {
                 Koti
               </Link>
               <Link 
-                href="/#kunnat" 
+                href="/" 
                 className="btn-ghost justify-start"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Laskuri
               </Link>
               <Link 
-                href="#features" 
+                href="/#features" 
                 className="btn-ghost justify-start"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Tietoa
               </Link>
               <Link 
-                href="#faq" 
+                href="/#faq" 
                 className="btn-ghost justify-start"
                 onClick={() => setIsMenuOpen(false)}
               >
                 FAQ
               </Link>
               <Link 
-                href="#contact" 
+                href="/#contact" 
                 className="btn-ghost justify-start"
                 onClick={() => setIsMenuOpen(false)}
               >

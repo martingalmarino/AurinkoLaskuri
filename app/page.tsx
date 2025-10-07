@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Calculator, Zap, TrendingUp, Shield } from 'lucide-react'
+import { Calculator, Zap, TrendingUp, Shield, Target, Database, Mail, Phone, MapPin } from 'lucide-react'
 import { getAllKuntaSlugs } from '@/lib/kunnatFI'
 
 export default function HomePage() {
@@ -150,6 +150,139 @@ export default function HomePage() {
               <p className="text-gray-600">
                 Näe takaisinmaksuaika, vuosittaiset säästöt ja 20 vuoden säästöt
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Miksi valita AurinkoLaskuri?
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Suomen tarkin aurinkopaneelien ROI-laskuri, joka käyttää ajantasaisia tietoja ja huomioi kaikki tuet
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="w-8 h-8 text-primary-800" />
+              </div>
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">Tarkka ROI</h3>
+              <p className="text-sm text-gray-600">Real-time FMI & Nord Pool data</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-primary-800" />
+              </div>
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">Paikallinen tuki</h3>
+              <p className="text-sm text-gray-600">Huomioi kunnalliset tukiohjelmat</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Target className="w-8 h-8 text-primary-800" />
+              </div>
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">Fiksu sijoitus</h3>
+              <p className="text-sm text-gray-600">Näe takaisinmaksuaika & pitkän aikavälin säästöt</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Database className="w-8 h-8 text-primary-800" />
+              </div>
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">Läpinäkyvä</h3>
+              <p className="text-sm text-gray-600">Selkeät oletukset & metodologia</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Usein kysytyt kysymykset
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Vastaukset yleisimpiin kysymyksiin aurinkopaneelien asennuksesta Suomessa
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <div className="bg-gray-50 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Kuinka ROI lasketaan aurinkopaneeleille?
+              </h3>
+              <p className="text-gray-600">
+                ROI lasketaan ottamalla huomioon järjestelmän hankintahinta, vuotuinen energiantuotanto, 
+                sähkön hinta ja mahdolliset tuet. Käytämme ajantasaisia FMI säteilytietoja ja Nord Pool 
+                sähkön hintoja tarkkojen laskelmien tekemiseen.
+              </p>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Onko saatavilla valtion tai paikallisia tukia?
+              </h3>
+              <p className="text-gray-600">
+                Kyllä! Suomen valtio tarjoaa tukea aurinkopaneelien asennukseen, ja monet kunnat tarjoavat 
+                lisätukea. Laskurimme huomioi automaattisesti saatavilla olevat tuet kotikuntasi mukaan.
+              </p>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Kuinka paljon energiaa aurinkopaneelit tuottavat Suomessa?
+              </h3>
+              <p className="text-gray-600">
+                Vuotuinen energiantuotanto riippuu sijainnista ja paneelien koosta. Etelä-Suomessa tuotanto 
+                on noin 900-1000 kWh/kWp vuodessa, kun taas pohjoisessa se on hieman vähemmän. Laskurimme 
+                käyttää paikallisia säteilytietoja tarkkojen arvioiden tekemiseen.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Ota yhteyttä
+          </h2>
+          <p className="text-lg text-gray-600 mb-8">
+            Tarvitsetko apua aurinkopaneelien laskelmien kanssa? Ota yhteyttä!
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="bg-white rounded-lg p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Yhteystiedot</h3>
+              <div className="space-y-3 text-left">
+                <p className="flex items-center text-gray-600">
+                  <Mail className="w-5 h-5 mr-3 text-primary-600" />
+                  info@aurinkolaskuri.fi
+                </p>
+                <p className="flex items-center text-gray-600">
+                  <Phone className="w-5 h-5 mr-3 text-primary-600" />
+                  +358 40 123 4567
+                </p>
+                <p className="flex items-center text-gray-600">
+                  <MapPin className="w-5 h-5 mr-3 text-primary-600" />
+                  Helsinki, Suomi
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Palvelut</h3>
+              <div className="space-y-2 text-left text-gray-600">
+                <p>• ROI-laskelmat kaikille kunnille</p>
+                <p>• Ajantasaiset sähkön hinnat</p>
+                <p>• Paikallisten tukien tiedot</p>
+                <p>• Vertailu eri järjestelmille</p>
+              </div>
             </div>
           </div>
         </div>
