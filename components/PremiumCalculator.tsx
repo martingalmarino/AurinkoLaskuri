@@ -212,22 +212,23 @@ export default function PremiumCalculator({ kunta, onCalculate, isLoading = fals
       </div>
 
       {/* Calculate Button */}
-      <div className="text-center mb-8">
+      <div className="text-center mb-6 sm:mb-8">
         <button
           onClick={handleCalculate}
           disabled={isLoading || !inputs.installationCost}
-          className="btn-primary text-lg px-12 py-4 disabled:opacity-50 disabled:cursor-not-allowed flex items-center mx-auto"
+          className="bg-primary-600 hover:bg-primary-700 text-white font-semibold text-sm sm:text-base px-6 sm:px-8 lg:px-12 py-3 sm:py-4 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center mx-auto transition-all duration-300 shadow-lg hover:shadow-xl"
         >
           {isLoading ? (
             <>
-              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
-              Lasketaan...
+              <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-b-2 border-white mr-2 sm:mr-3"></div>
+              <span className="text-xs sm:text-base">Lasketaan...</span>
             </>
           ) : (
             <>
-              <TrendingUp className="w-5 h-5 mr-3" />
-              Laske ROI ja Säästöt
-              <ArrowRight className="w-5 h-5 ml-3" />
+              <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
+              <span className="hidden sm:inline">Laske ROI ja Säästöt</span>
+              <span className="sm:hidden">Laske ROI</span>
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 sm:ml-3" />
             </>
           )}
         </button>

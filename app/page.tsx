@@ -23,17 +23,17 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16 px-4 sm:px-0">
             <Link 
               href="#kunnat"
-              className="group bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center w-full sm:w-auto justify-center"
+              className="group bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2.5 sm:py-3 lg:py-4 px-5 sm:px-6 lg:px-8 rounded-xl sm:rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 inline-flex items-center w-full sm:w-auto justify-center text-sm sm:text-base"
             >
-              <Calculator className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 group-hover:scale-110 transition-transform" />
-              <span className="text-sm sm:text-base">Aloita laskenta</span>
+              <Calculator className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+              <span>Aloita laskenta</span>
             </Link>
             <Link 
               href="#kunnat"
-              className="group bg-white/80 backdrop-blur-sm hover:bg-white text-primary-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 border border-primary-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center w-full sm:w-auto justify-center"
+              className="group bg-white/80 backdrop-blur-sm hover:bg-white text-primary-600 font-semibold py-2.5 sm:py-3 lg:py-4 px-5 sm:px-6 lg:px-8 rounded-xl sm:rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 border border-primary-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 inline-flex items-center w-full sm:w-auto justify-center text-sm sm:text-base"
             >
-              <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 group-hover:scale-110 transition-transform" />
-              <span className="text-sm sm:text-base">Selaa kuntia</span>
+              <MapPin className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+              <span>Selaa kuntia</span>
             </Link>
           </div>
 
@@ -101,10 +101,10 @@ export default function HomePage() {
             })}
           </div>
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-6 sm:mt-8">
             <Link 
               href="#kunnat"
-              className="btn-primary"
+              className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold text-sm sm:text-base py-2.5 sm:py-3 px-5 sm:px-6 rounded-lg sm:rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
             >
               Selaa kaikkia kuntia
             </Link>
@@ -265,9 +265,9 @@ export default function HomePage() {
           </p>
           <Link 
             href="#kunnat" 
-            className="group bg-white text-primary-600 hover:bg-gray-50 font-semibold py-4 px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center"
+            className="group bg-white text-primary-600 hover:bg-gray-50 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center text-sm sm:text-base"
           >
-            <Calculator className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
+            <Calculator className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 group-hover:scale-110 transition-transform" />
             Selaa kuntia
           </Link>
         </div>

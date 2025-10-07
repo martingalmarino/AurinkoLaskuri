@@ -141,8 +141,8 @@ export default function LocalInstallers({ kunta, electricityPrice, solarRadiatio
 
               {/* Action Buttons */}
               <div className="mt-4 pt-4 border-t border-gray-200">
-                <div className="flex gap-2">
-                  <button className="flex-1 btn-primary text-sm py-2">
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <button className="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-semibold text-xs sm:text-sm py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg transition-all duration-300">
                     Pyydä tarjous
                   </button>
                   <a
@@ -150,9 +150,9 @@ export default function LocalInstallers({ kunta, electricityPrice, solarRadiatio
                     target="_blank"
                     rel="noopener noreferrer"
                     title={`Vieraile ${installer.name} verkkosivustolla`}
-                    className="flex items-center justify-center px-3 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors"
+                    className="flex items-center justify-center px-3 py-2 sm:py-2.5 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors text-xs sm:text-sm"
                   >
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
                   </a>
                 </div>
               </div>
