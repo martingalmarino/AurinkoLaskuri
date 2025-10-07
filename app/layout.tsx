@@ -6,6 +6,15 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import DataModeToggle from '@/components/DataModeToggle'
 
+// Declare Cookiehub types
+declare global {
+  interface Window {
+    cookiehub?: {
+      load: (config: any) => void;
+    };
+  }
+}
+
 // Force new deployment
 
 const inter = Inter({ subsets: ['latin'] })
@@ -82,8 +91,10 @@ export default function RootLayout({
         <Script id="cookiehub-init" strategy="afterInteractive">
           {`
             document.addEventListener("DOMContentLoaded", function(event) {
-              var cpm = {};
-              window.cookiehub.load(cpm);
+              if (typeof window.cookiehub !== 'undefined') {
+                var cpm = {};
+                window.cookiehub.load(cpm);
+              }
             });
           `}
         </Script>

@@ -13,37 +13,57 @@ const cache = new Map<string, CacheEntry>();
 export class NordPoolClient {
   private async fetchNordPoolData(): Promise<number> {
     try {
-      // Nord Pool public API endpoint for Finland
+      // Try multiple Nord Pool endpoints
       const today = new Date().toISOString().split('T')[0];
-      const url = `https://www.nordpoolgroup.com/api/marketdata/page/10?currency=,,EUR,EUR&endDate=${today}`;
+      const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().split('T')[0];
       
-      const response = await fetch(url, {
-        headers: {
-          'Accept': 'application/json',
-          'User-Agent': 'Mozilla/5.0 (compatible; SolarROICalculator/1.0)',
-        },
-      });
+      const endpoints = [
+        `https://www.nordpoolgroup.com/api/marketdata/page/10?currency=,,EUR,EUR&endDate=${today}`,
+        `https://www.nordpoolgroup.com/api/marketdata/page/10?currency=,,EUR,EUR&endDate=${yesterday}`,
+        `https://www.nordpoolgroup.com/api/marketdata/page/10?currency=EUR&endDate=${today}`
+      ];
 
-      if (!response.ok) {
-        throw new Error(`Nord Pool API error: ${response.status}`);
-      }
+      for (const url of endpoints) {
+        try {
+          const response = await fetch(url, {
+            headers: {
+              'Accept': 'application/json',
+              'User-Agent': 'Mozilla/5.0 (compatible; SolarROICalculator/1.0)',
+              'Accept-Language': 'en-US,en;q=0.9',
+              'Cache-Control': 'no-cache',
+            },
+          });
 
-      const data = await response.json();
-      
-      // Extract Finland price from the response
-      if (data.data && data.data.Rows && data.data.Rows.length > 0) {
-        for (const row of data.data.Rows) {
-          if (row.IsExtraRow === false && row.Columns && row.Columns.length > 0) {
-            // Finland is typically in the first column
-            const finlandPrice = parseFloat(row.Columns[0].Value.replace(',', '.'));
-            if (!isNaN(finlandPrice) && finlandPrice > 0) {
-              return finlandPrice / 1000; // Convert from €/MWh to €/kWh
+          if (!response.ok) {
+            continue;
+          }
+
+          const data = await response.json();
+          
+          // Extract Finland price from the response
+          if (data.data && data.data.Rows && data.data.Rows.length > 0) {
+            for (const row of data.data.Rows) {
+              if (row.IsExtraRow === false && row.Columns && row.Columns.length > 0) {
+                // Try different columns for Finland
+                for (let i = 0; i < Math.min(3, row.Columns.length); i++) {
+                  const priceStr = row.Columns[i].Value;
+                  if (priceStr && priceStr !== '-' && priceStr !== 'N/A') {
+                    const finlandPrice = parseFloat(priceStr.replace(',', '.').replace(' ', ''));
+                    if (!isNaN(finlandPrice) && finlandPrice > 0 && finlandPrice < 1000) {
+                      return finlandPrice / 1000; // Convert from €/MWh to €/kWh
+                    }
+                  }
+                }
+              }
             }
           }
+        } catch (endpointError) {
+          console.warn(`Nord Pool endpoint failed: ${url}`, endpointError);
+          continue;
         }
       }
 
-      throw new Error('Could not extract Finland price from Nord Pool data');
+      throw new Error('All Nord Pool endpoints failed');
     } catch (error) {
       console.error('Error fetching Nord Pool data:', error);
       throw error;
@@ -101,6 +121,33 @@ export class NordPoolClient {
     }
   }
 
+  private async fetchElectricityPriceAlternative(): Promise<number> {
+    try {
+      // Alternative: Try to get electricity price from Finnish Energy Authority
+      const today = new Date().toISOString().split('T')[0];
+      const url = `https://api.energiavirasto.fi/v1/electricity/price?date=${today}&area=FI`;
+      
+      const response = await fetch(url, {
+        headers: {
+          'Accept': 'application/json',
+          'User-Agent': 'Mozilla/5.0 (compatible; SolarROICalculator/1.0)',
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.price && data.price > 0) {
+          return data.price / 1000; // Convert from €/MWh to €/kWh if needed
+        }
+      }
+
+      throw new Error('Alternative electricity price API failed');
+    } catch (error) {
+      console.error('Error fetching alternative electricity price:', error);
+      throw error;
+    }
+  }
+
   async getElectricityPrice(): Promise<ElectricityPrice> {
     const cacheKey = 'finland_electricity_price';
     const cached = cache.get(cacheKey);
@@ -113,20 +160,27 @@ export class NordPoolClient {
     let source = 'fallback';
 
     try {
-      // Try Nord Pool first
-      try {
-        price = await this.fetchNordPoolData();
-        source = 'Nord Pool';
-      } catch (nordPoolError) {
-        console.warn('Nord Pool failed, trying ENTSO-E:', nordPoolError);
-        
-        // Fallback to ENTSO-E
+      // Try multiple sources in order of preference
+      const sources = [
+        { name: 'Nord Pool', fetchFn: () => this.fetchNordPoolData() },
+        { name: 'ENTSO-E', fetchFn: () => this.fetchENTSOEData() },
+        { name: 'Alternative API', fetchFn: () => this.fetchElectricityPriceAlternative() }
+      ];
+
+      for (const sourceInfo of sources) {
         try {
-          price = await this.fetchENTSOEData();
-          source = 'ENTSO-E';
-        } catch (entsoeError) {
-          console.warn('ENTSO-E also failed, using fallback price:', entsoeError);
+          price = await sourceInfo.fetchFn();
+          source = sourceInfo.name;
+          console.log(`Successfully fetched electricity price from ${source}: ${price} €/kWh`);
+          break;
+        } catch (sourceError) {
+          console.warn(`${sourceInfo.name} failed:`, sourceError);
+          continue;
         }
+      }
+
+      if (source === 'fallback') {
+        console.warn('All electricity price sources failed, using fallback price');
       }
 
       const data: ElectricityPrice = {

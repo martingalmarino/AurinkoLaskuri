@@ -11,7 +11,6 @@ import Hero from '@/components/Hero'
 import FAQAccordion from '@/components/FAQAccordion'
 import LocalInstallers from '@/components/LocalInstallers'
 import RelatedMunicipalities from '@/components/RelatedMunicipalities'
-import SmartContentLinks from '@/components/SmartContentLinks'
 
 interface PageProps {
   params: {
@@ -174,13 +173,6 @@ export default async function KuntaPage({ params }: PageProps) {
           electricityPrice={electricityPriceData.price}
           solarRadiation={solarRadiationData.annualRADGLO}
         />
-
-        {/* Smart Content Links */}
-        <section className="py-16 bg-white">
-          <div className="container-premium">
-            <SmartContentLinks currentKunta={kunta} />
-          </div>
-        </section>
 
         {/* Related Municipalities */}
         <RelatedMunicipalities currentKunta={kunta} />

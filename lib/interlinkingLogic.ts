@@ -64,7 +64,7 @@ export function getRelatedMunicipalities(
       similarity: Math.max(0.3, 1 - (item.distance / 50))
     }));
   
-  // 3. Similar subsidy rates (within 5% difference)
+  // 3. Similar subsidy rates (within 3% difference, more strict)
   const totalSubsidy = currentKunta.subsidy.national.rate + currentKunta.subsidy.local.rate;
   const similarSubsidy = otherMunicipalities
     .map(k => {
@@ -72,15 +72,16 @@ export function getRelatedMunicipalities(
       const difference = Math.abs(totalSubsidy - kTotalSubsidy);
       return { kunta: k, difference };
     })
-    .filter(item => item.difference <= 0.05)
+    .filter(item => item.difference <= 0.03) // More strict: only 3% difference
     .sort((a, b) => a.difference - b.difference)
+    .slice(0, 2) // Limit to 2 results
     .map(item => ({
       kunta: item.kunta,
       relationship: 'similar_subsidy' as const,
-      similarity: 1 - (item.difference / 0.05)
+      similarity: 1 - (item.difference / 0.03)
     }));
   
-  // 4. Similar population size (within 50% difference)
+  // 4. Similar population size (within 30% difference, more strict)
   const similarPopulation = otherMunicipalities
     .map(k => {
       const ratio = Math.min(k.population, currentKunta.population) / 
@@ -88,8 +89,9 @@ export function getRelatedMunicipalities(
       const difference = 1 - ratio;
       return { kunta: k, difference, ratio };
     })
-    .filter(item => item.difference <= 0.5)
+    .filter(item => item.difference <= 0.3) // More strict: only 30% difference
     .sort((a, b) => a.difference - b.difference)
+    .slice(0, 2) // Limit to 2 results
     .map(item => ({
       kunta: item.kunta,
       relationship: 'similar_population' as const,
@@ -119,7 +121,24 @@ export function getRelatedMunicipalities(
     }
   }
   
-  return Array.from(uniqueRelated.values()).slice(0, limit);
+  // Only return results if we have meaningful relationships
+  const results = Array.from(uniqueRelated.values()).slice(0, limit);
+  
+  // Filter out results that might not be relevant
+  return results.filter(item => {
+    // Only include if we have at least region or nearby relationships
+    if (item.relationship === 'region' || item.relationship === 'nearby') {
+      return true;
+    }
+    // For similar relationships, be more selective
+    if (item.relationship === 'similar_subsidy' && item.similarity && item.similarity > 0.8) {
+      return true;
+    }
+    if (item.relationship === 'similar_population' && item.similarity && item.similarity > 0.7) {
+      return true;
+    }
+    return false;
+  });
 }
 
 /**
