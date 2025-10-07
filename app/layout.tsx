@@ -5,6 +5,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import DataModeToggle from '@/components/DataModeToggle'
+import CookiehubDebug from '@/components/CookiehubDebug'
 
 // Declare Cookiehub types
 declare global {
@@ -76,7 +77,7 @@ export default function RootLayout({
         <link rel="alternate" hrefLang="fi" href="https://www.aurinkocalc.com" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
         <meta name="theme-color" content="#1e40af" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
@@ -85,19 +86,102 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         {process.env.NODE_ENV === 'development' && <DataModeToggle />}
+        <CookiehubDebug />
         
-        {/* Cookiehub Scripts */}
-        <Script src="https://cdn.cookiehub.eu/c2/b09a7fff.js" strategy="afterInteractive" />
-        <Script id="cookiehub-init" strategy="afterInteractive">
-          {`
-            document.addEventListener("DOMContentLoaded", function(event) {
-              if (typeof window.cookiehub !== 'undefined') {
-                var cpm = {};
-                window.cookiehub.load(cpm);
+        {/* Google AdSense */}
+        <Script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6771833588582297"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+        
+        {/* Cookiehub - Direct Implementation */}
+        <script 
+          src="https://cdn.cookiehub.eu/c2/b09a7fff.js" 
+          async
+        />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Enhanced Cookiehub initialization
+            (function() {
+              console.log('🍪 Cookiehub initialization script starting...');
+              
+              function loadCookiehub() {
+                console.log('🍪 Loading Cookiehub...');
+                console.log('🍪 Domain:', window.location.hostname);
+                console.log('🍪 Script ID: c2/b09a7fff');
+                
+                if (typeof window.cookiehub !== 'undefined') {
+                  console.log('🍪 Cookiehub object found, initializing...');
+                  try {
+                    var cpm = {};
+                    window.cookiehub.load(cpm);
+                    console.log('🍪 Cookiehub loaded successfully');
+                    
+                    // Check for banner after loading
+                    setTimeout(function() {
+                      var selectors = [
+                        '[data-cookiehub]',
+                        '.cookiehub-banner',
+                        '.cookiehub-widget',
+                        '#cookiehub-banner',
+                        '.cookie-consent-banner'
+                      ];
+                      
+                      var banner = null;
+                      for (var i = 0; i < selectors.length; i++) {
+                        banner = document.querySelector(selectors[i]);
+                        if (banner) break;
+                      }
+                      
+                      console.log('🍪 Banner found:', !!banner);
+                      if (banner) {
+                        console.log('🍪 Banner element:', banner);
+                        console.log('🍪 Banner display:', window.getComputedStyle(banner).display);
+                        console.log('🍪 Banner visibility:', window.getComputedStyle(banner).visibility);
+                        console.log('🍪 Banner opacity:', window.getComputedStyle(banner).opacity);
+                      } else {
+                        console.log('🍪 No banner found, checking DOM for any cookiehub elements...');
+                        var allElements = document.querySelectorAll('*');
+                        var cookiehubElements = [];
+                        for (var j = 0; j < allElements.length; j++) {
+                          if (allElements[j].className.includes('cookiehub') || 
+                              allElements[j].id.includes('cookiehub') ||
+                              allElements[j].getAttribute('data-cookiehub')) {
+                            cookiehubElements.push(allElements[j]);
+                          }
+                        }
+                        console.log('🍪 Found cookiehub-related elements:', cookiehubElements.length);
+                      }
+                    }, 3000);
+                    
+                  } catch (error) {
+                    console.error('🍪 Error loading Cookiehub:', error);
+                  }
+                } else {
+                  console.log('🍪 Cookiehub object not found yet');
+                  return false;
+                }
+                return true;
               }
-            });
-          `}
-        </Script>
+              
+              // Try loading immediately
+              if (document.readyState === 'complete') {
+                loadCookiehub();
+              } else {
+                window.addEventListener('load', function() {
+                  setTimeout(loadCookiehub, 100);
+                });
+              }
+              
+              // Fallback attempts
+              setTimeout(loadCookiehub, 1000);
+              setTimeout(loadCookiehub, 3000);
+              setTimeout(loadCookiehub, 5000);
+            })();
+          `
+        }} />
       </body>
     </html>
   )
