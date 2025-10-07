@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-bg-primary/95 backdrop-blur-md border-b border-text-light/20">
       <div className="container-premium">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 px-4 sm:px-0">
           {/* Logo */}
           <Link href="/" className="group">
             <span className="text-xl font-bold text-text-primary group-hover:text-primary-800 transition-colors">

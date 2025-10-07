@@ -50,14 +50,14 @@ export default function PremiumCalculator({ kunta, onCalculate, isLoading = fals
   };
 
   return (
-    <div className="card-premium p-8 max-w-4xl mx-auto">
+    <div className="card-premium p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
       {/* Header */}
-      <div className="text-center mb-8">
-        <div className="flex items-center justify-center mb-4">
-          <div className="w-12 h-12 bg-gradient-to-br from-primary-800 to-primary-900 rounded-xl flex items-center justify-center mr-4 shadow-lg">
-            <Calculator className="w-6 h-6 text-white" />
+      <div className="text-center mb-6 sm:mb-8">
+        <div className="flex flex-col sm:flex-row items-center justify-center mb-4 gap-3 sm:gap-4">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary-800 to-primary-900 rounded-xl flex items-center justify-center shadow-lg">
+            <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
           </div>
-          <h2 className="text-2xl font-bold">
+          <h2 className="text-xl sm:text-2xl font-bold text-center sm:text-left">
             ROI Laskuri – {kunta.name}
           </h2>
         </div>
@@ -67,33 +67,33 @@ export default function PremiumCalculator({ kunta, onCalculate, isLoading = fals
       </div>
 
       {/* Input Mode Toggle */}
-      <div className="flex bg-bg-secondary rounded-xl p-1 mb-8">
+      <div className="flex flex-col sm:flex-row bg-bg-secondary rounded-xl p-1 mb-6 sm:mb-8 gap-1">
         <button
           onClick={() => setInputMode('system')}
-          className={`flex-1 py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center ${
+          className={`flex-1 py-3 px-3 sm:px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center text-sm sm:text-base ${
             inputMode === 'system'
               ? 'bg-bg-primary text-primary-800 shadow-sm'
               : 'text-text-muted hover:text-text-primary'
           }`}
         >
-          <Zap className="w-4 h-4 mr-2" />
-          Järjestelmän koko (kW)
+          <Zap className="w-4 h-4 mr-1 sm:mr-2 flex-shrink-0" />
+          <span className="truncate">Järjestelmän koko (kW)</span>
         </button>
         <button
           onClick={() => setInputMode('roof')}
-          className={`flex-1 py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center ${
+          className={`flex-1 py-3 px-3 sm:px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center text-sm sm:text-base ${
             inputMode === 'roof'
               ? 'bg-bg-primary text-primary-800 shadow-sm'
               : 'text-text-muted hover:text-text-primary'
           }`}
         >
-          <Home className="w-4 h-4 mr-2" />
-          Katon pinta-ala (m²)
+          <Home className="w-4 h-4 mr-1 sm:mr-2 flex-shrink-0" />
+          <span className="truncate">Katon pinta-ala (m²)</span>
         </button>
       </div>
 
       {/* Input Fields */}
-      <div className="grid md:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
         {/* System Size or Roof Area */}
         <div>
           <label className="block text-sm font-semibold text-text-primary mb-3">

@@ -11,34 +11,34 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-solar-50 via-primary-50 to-success-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
             Aurinkopaneelien ROI Laskuri
           </h1>
-          <p className="text-xl lg:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 mb-6 sm:mb-8 max-w-3xl mx-auto px-4 sm:px-0">
             Laske aurinkopaneelien takaisinmaksuaika ja säästöt Suomessa. 
             Käytämme FMI säteilytietoja ja Nord Pool sähkön hintoja tarkkojen laskelmien tekemiseen.
           </p>
           
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16 px-4 sm:px-0">
             <Link 
               href="#kunnat"
-              className="group bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center"
+              className="group bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center w-full sm:w-auto justify-center"
             >
-              <Calculator className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
-              Aloita laskenta
+              <Calculator className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 group-hover:scale-110 transition-transform" />
+              <span className="text-sm sm:text-base">Aloita laskenta</span>
             </Link>
             <Link 
               href="#kunnat"
-              className="group bg-white/80 backdrop-blur-sm hover:bg-white text-primary-600 font-semibold py-4 px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 border border-primary-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center"
+              className="group bg-white/80 backdrop-blur-sm hover:bg-white text-primary-600 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 border border-primary-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center w-full sm:w-auto justify-center"
             >
-              <MapPin className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
-              Selaa kuntia
+              <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 group-hover:scale-110 transition-transform" />
+              <span className="text-sm sm:text-base">Selaa kuntia</span>
             </Link>
           </div>
 
           {/* Key Features */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto px-4 sm:px-0">
             <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 border border-white/20">
               <Zap className="w-12 h-12 text-primary-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Live Data</h3>
@@ -81,19 +81,19 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
             {kunnatSlugs.map((slug) => {
               const kuntaName = slug.charAt(0).toUpperCase() + slug.slice(1).replace('-', ' ');
               return (
                 <Link
                   key={slug}
                   href={`/fi/aurinkopaneelit-laskuri/${slug}`}
-                  className="block p-4 bg-gray-50 rounded-lg hover:bg-primary-50 hover:border-primary-200 border border-gray-200 transition-colors group"
+                  className="block p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-primary-50 hover:border-primary-200 border border-gray-200 transition-colors group"
                 >
-                  <h3 className="font-semibold text-gray-900 group-hover:text-primary-700 transition-colors">
+                  <h3 className="font-semibold text-gray-900 group-hover:text-primary-700 transition-colors text-sm sm:text-base">
                     {kuntaName}
                   </h3>
-                  <p className="text-sm text-gray-600 mt-1">
+                  <p className="text-xs sm:text-sm text-gray-600 mt-1">
                     Aurinkopaneelit laskuri
                   </p>
                 </Link>

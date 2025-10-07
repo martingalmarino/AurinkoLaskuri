@@ -29,45 +29,45 @@ export default function Hero({ kunta, electricityPrice, solarRadiation, children
   ];
 
   return (
-    <section className="gradient-hero py-20 lg:py-28">
-      <div className="container-hero">
+    <section className="gradient-hero py-12 sm:py-16 lg:py-20 xl:py-28">
+      <div className="container-hero px-4 sm:px-6 lg:px-8">
         {/* Breadcrumbs */}
-        <nav className="mb-12" aria-label="Breadcrumb">
+        <nav className="mb-8 sm:mb-12" aria-label="Breadcrumb">
           <div className="flex items-center justify-center">
-            <ol className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 shadow-sm">
+            <ol className="flex items-center space-x-1 sm:space-x-2 bg-white/80 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full border border-white/20 shadow-sm text-xs sm:text-sm">
               <li>
-                <Link href="/" className="text-sm text-gray-600 hover:text-primary-700 transition-colors font-medium">
+                <Link href="/" className="text-gray-600 hover:text-primary-700 transition-colors font-medium">
                   Koti
                 </Link>
               </li>
               <li className="flex items-center">
-                <span className="mx-2 text-gray-400">/</span>
-                <Link href="/#kunnat" className="text-sm text-gray-600 hover:text-primary-700 transition-colors font-medium">
+                <span className="mx-1 sm:mx-2 text-gray-400">/</span>
+                <Link href="/#kunnat" className="text-gray-600 hover:text-primary-700 transition-colors font-medium">
                   Aurinkopaneelit
                 </Link>
               </li>
               <li className="flex items-center">
-                <span className="mx-2 text-gray-400">/</span>
-                <span className="text-sm text-gray-900 font-semibold">{kunta.name}</span>
+                <span className="mx-1 sm:mx-2 text-gray-400">/</span>
+                <span className="text-gray-900 font-semibold truncate max-w-[120px] sm:max-w-none">{kunta.name}</span>
               </li>
             </ol>
           </div>
         </nav>
 
         {/* Main Hero Content */}
-        <div className="text-center mb-16">
-          <h1 className="mb-6 animate-fade-in">
+        <div className="text-center mb-12 sm:mb-16">
+          <h1 className="mb-4 sm:mb-6 animate-fade-in text-3xl sm:text-4xl lg:text-5xl">
             Aurinkopaneelit Laskuri – {kunta.name}
           </h1>
-          <p className="text-xl lg:text-2xl text-text-muted max-w-3xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg sm:text-xl lg:text-2xl text-text-muted max-w-3xl mx-auto mb-6 sm:mb-10 leading-relaxed px-4 sm:px-0">
             Laske aurinkopaneelien takaisinmaksuaika ja säästöt {kunta.name}ssa. 
             Käytämme ajantasaisia sähkön hintoja ja paikallisia säteilytietoja tarkkojen laskelmien tekemiseen.
           </p>
 
           {/* Simple Trust Chips */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
             {trustChips.map((chip, index) => (
-              <span key={index} className={`px-4 py-2 rounded-full text-sm font-medium ${chip.color} animate-fade-in`} style={{ animationDelay: `${index * 0.1}s` }}>
+              <span key={index} className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${chip.color} animate-fade-in`} style={{ animationDelay: `${index * 0.1}s` }}>
                 {chip.label}
               </span>
             ))}
@@ -75,7 +75,7 @@ export default function Hero({ kunta, electricityPrice, solarRadiation, children
 
           {/* Children content (Calculator) */}
           {children && (
-            <div className="mt-12">
+            <div className="mt-8 sm:mt-12">
               {children}
             </div>
           )}
