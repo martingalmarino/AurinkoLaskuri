@@ -129,7 +129,7 @@ export default function HomepageCalculator() {
           </label>
           <input
             type="number"
-            value={(inputs.panelEfficiency * 100) || ''}
+            value={(inputs.panelEfficiency || 0) * 100 || ''}
             onChange={(e) => setInputs({...inputs, panelEfficiency: (parseFloat(e.target.value) || 0) / 100})}
             placeholder="Esim. 19"
             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
