@@ -77,9 +77,12 @@ export default function RootLayout({
         <link rel="alternate" hrefLang="fi" href="https://www.aurinkocalc.com" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#1e40af" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        {/* Google AdSense Meta */}
+        <meta name="google-adsense-account" content="ca-pub-6771833588582297" />
       </head>
       <body className={inter.className}>
         <Header />
@@ -89,11 +92,10 @@ export default function RootLayout({
         <CookiehubDebug />
         
         {/* Google AdSense */}
-        <Script 
+        <script 
           async 
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6771833588582297"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
         
         {/* Cookiehub - Direct Implementation */}
