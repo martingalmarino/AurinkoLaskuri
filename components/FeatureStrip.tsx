@@ -42,15 +42,17 @@ export default function FeatureStrip() {
         <div className="grid-features mb-16">
           {features.map((feature, index) => (
             <div key={index} className="feature-card animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="w-14 h-14 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
-                <feature.icon className="w-7 h-7 text-primary-800" />
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center mb-4 shadow-sm">
+                  <feature.icon className="w-8 h-8 text-primary-800" />
+                </div>
+                <h3 className="text-lg font-semibold mb-3 text-text-primary">
+                  {feature.title}
+                </h3>
+                <p className="text-sm text-text-muted leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="font-semibold mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-sm leading-relaxed">
-                {feature.description}
-              </p>
             </div>
           ))}
         </div>
